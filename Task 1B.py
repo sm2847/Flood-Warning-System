@@ -4,6 +4,7 @@ from floodsystem.stationdata import build_station_list
 def change(x):
     result = []
 
+    #Changes details of each station to list of tuples (station name, station town, distance)
     for tuple in x:
         result.append((tuple[0].name,tuple[0].town,tuple[1]))
     return result
