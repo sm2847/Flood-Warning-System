@@ -3,6 +3,8 @@ from haversine import haversine
 from floodsystem.stationdata import build_station_list
 from floodsystem.geo import stations_within_radius
 from floodsystem.station import inconsistent_typical_range_stations
+from floodsystem.geo import stations_by_river
+from floodsystem.geo import rivers_by_station_number
 
 stations = build_station_list()
 
@@ -30,3 +32,20 @@ def test_inconsistent_typical_range_stations():
         for j in result2:
             if i.name == j:
                 assert  i.typicalrange[1] < i.typicalrange[0] or i.typicalrange == None 
+
+
+def test_stations_by_river(stations):
+    test_stations_by_river = stations_by_river(stations)
+    for river, stations_list in test_stations_by_river.items():
+        assert isinstance(stations_list, tuple)
+
+
+
+def test_rivers_by_station_number(stations):
+    #tests 
+    test_rivers_by_station_number = rivers_by_station_number(stations, 10)
+    for tuple in test_rivers_by_station_number:
+        river, number_of_stations = tuple
+        assert isinstance(river, str)
+        assert isinstance(number_of_stations, int)
+
