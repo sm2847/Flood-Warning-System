@@ -27,22 +27,21 @@ def test_stations_within_radius():
 
 #Check if stations have inconsistent data
 def test_inconsistent_typical_range_stations():
-    result2 = inconsistent_typical_range_stations(stations)
+    list = inconsistent_typical_range_stations(stations)
     for i in stations:
-        for j in result2:
+        for j in list:
             if i.name == j:
                 assert  i.typicalrange[1] < i.typicalrange[0] or i.typicalrange == None 
 
-
+#tests that each key in the dictionary stations_by_river is mapped to a tuple of station names
 def test_stations_by_river(stations):
     test_stations_by_river = stations_by_river(stations)
     for river, stations_list in test_stations_by_river.items():
         assert isinstance(stations_list, tuple)
 
 
-
+# tests that rivers_by_station_number returns a list of tuples containing a string and an integar
 def test_rivers_by_station_number(stations):
-    #tests 
     test_rivers_by_station_number = rivers_by_station_number(stations, 10)
     for tuple in test_rivers_by_station_number:
         river, number_of_stations = tuple
