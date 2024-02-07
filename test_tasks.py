@@ -7,8 +7,6 @@ from floodsystem.geo import stations_by_river
 from floodsystem.geo import rivers_by_station_number
 from floodsystem.station import MonitoringStation 
 
-stations = build_station_list()
-
 #Checks Task 1B function
 def test_distance():
     stations = build_station_list()
@@ -42,14 +40,15 @@ def test_inconsistent_typical_range_stations():
                 assert  i.typicalrange[1] < i.typicalrange[0] or i.typicalrange == None 
 
 #tests that each key in the dictionary stations_by_river is mapped to a tuple of station names
-def test_stations_by_river(stations):
+def test_stations_by_river():
+    stations = build_station_list()
     test_stations_by_river = stations_by_river(stations)
     for river, stations_list in test_stations_by_river.items():
         assert isinstance(stations_list, tuple)
 
-
 # tests that rivers_by_station_number returns a list of tuples containing a string and an integar
-def test_rivers_by_station_number(stations):
+def test_rivers_by_station_number():
+    stations = build_station_list()
     test_rivers_by_station_number = rivers_by_station_number(stations, 10)
     for tuple in test_rivers_by_station_number:
         river, number_of_stations = tuple
