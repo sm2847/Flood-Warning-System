@@ -24,6 +24,7 @@ def test_distance():
 
 #Check if all stations are within 10km
 def test_stations_within_radius():
+    stations = build_station_list()
     coord = (52.2053, 0.1218)
     stations_list = stations_within_radius(stations,coord,10)
     for i in stations:
@@ -33,6 +34,7 @@ def test_stations_within_radius():
 
 #Check if stations have inconsistent data
 def test_inconsistent_typical_range_stations():
+    stations = build_station_list()
     list = inconsistent_typical_range_stations(stations)
     for i in stations:
         for j in list:
