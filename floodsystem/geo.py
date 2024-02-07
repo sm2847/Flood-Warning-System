@@ -34,7 +34,6 @@ def stations_within_radius(stations, centre, r):
     return sorted_stations_inside
 
 
-
 def rivers_with_station(stations):
     # returns a list of all the unique river names
     river_names = set()
@@ -43,6 +42,7 @@ def rivers_with_station(stations):
         river_names.add(station.river)
 
     return river_names
+
 
 def stations_by_river(stations):
     # returns a dictionary of all the stations that are on each river
@@ -57,7 +57,7 @@ def stations_by_river(stations):
 
 
 def rivers_by_station_number(stations, N):
-    
+    # returns a lists of tuples containing rivers with the number of stations on them, in descending order
     stat_by_river_output = stations_by_river(stations)
     riv_stat_num = [(river, len(stat_by_river_output[river])) for river in stat_by_river_output]
     
