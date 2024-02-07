@@ -31,7 +31,7 @@ def test_stations_within_radius():
         for a in stations_list:
             if i.name == a:
                 assert haversine(coord,i.coord) <= 10
-
+                
 #Check if stations have inconsistent data
 def test_inconsistent_typical_range_stations():
     stations = build_station_list()
