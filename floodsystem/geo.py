@@ -62,6 +62,23 @@ def rivers_by_station_number(stations, N):
     riv_stat_num = [(river, len(stat_by_river_output[river])) for river in stat_by_river_output]
     
     sorted_riv_stat_num = sorted(riv_stat_num, key=lambda x: x[1], reverse=True)
-    N_sorted_riv_stat_num = sorted_riv_stat_num[:N]
+#    N_sorted_riv_stat_num = sorted_riv_stat_num[:N]
+    N_riv_stat_num = []
+    x = len(stations) 
+    while x != 0:
+        for river, length in sorted_riv_stat_num:
+            if length == x:
+                N_riv_stat_num.append((river, x))
+        x = x - 1
+        if len(N_riv_stat_num) >= N:
+            break
+    return(sorted(N_riv_stat_num, key=lambda x: x[1], reverse=True))
+
+
+
+
+
+
+
     return N_sorted_riv_stat_num
     

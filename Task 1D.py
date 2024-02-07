@@ -24,5 +24,3 @@ thames = sorted(river_stations_dict['River Thames'])
 print(aire)
 print(cam)
 print(thames)
-
-print(stations_by_river(stations))
