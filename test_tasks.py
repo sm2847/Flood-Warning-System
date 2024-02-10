@@ -56,4 +56,3 @@ def test_rivers_by_station_number():
         river, number_of_stations = tuple
         assert isinstance(river, str)
         assert isinstance(number_of_stations, int)
-
