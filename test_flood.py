@@ -40,8 +40,8 @@ def test_stations_highest_rel_level():
     stations[1].typical_range, stations[1].latest_level = (0.1, 1.5), 0.25
     stations[2].typical_range, stations[2].latest_level = (0.0, 2.5), 3.0
     stations[3].typical_range, stations[3].latest_level = (0.1, 0.5), 1.0
-    stations[4].typical_range, stations[4].latest_level = (0.1, 5), 10.0
-    [s1, s2, s3, s4, s5] = stations
+    stations[4].typical_range, stations[4].latest_level = (0.1, 2.5), 5.0
+    [s1,s2,s3,s4,s5] = stations
 
     assert stations_highest_rel_level(stations, 1) == [s4]
     assert len(stations_highest_rel_level(stations, 5)) == 5
