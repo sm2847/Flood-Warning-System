@@ -45,3 +45,4 @@ def test_stations_highest_rel_level():
 
     assert stations_highest_rel_level(stations, 1) == [s4]
     assert len(stations_highest_rel_level(stations, 5)) == 5
+    assert stations_highest_rel_level(stations, 5) == [s4,s5,s3,s1,s2]
