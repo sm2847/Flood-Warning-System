@@ -25,6 +25,8 @@ def plot_water_level_with_fit(station, dates, levels, p):
 
     plt.plot(dates, levels, label='$Data$')
     plt.plot(dates, poly_y, label='$Poly$')
+    plt.xlabel("$Time$")
+    plt.ylabel("$Water Level$")
     plt.legend()
     plt.show()
     return
