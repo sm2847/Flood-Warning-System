@@ -1,5 +1,12 @@
 from floodsystem.station import MonitoringStation
 from floodsystem.flood import stations_highest_rel_level, stations_level_over_threshold
+from floodsystem.plot import plot_water_levels
+import matplotlib.pyplot as plt
+from Task2E import run as task2E_run
+from floodsystem.analysis import polyfit
+import numpy as np
+from Task2G import run as task2G_run
+from floodsystem.stationdata import build_station_list, update_water_levels
 
 
 #Generates list of test stations
@@ -46,3 +53,63 @@ def test_stations_highest_rel_level():
     assert stations_highest_rel_level(stations, 1) == [s4]
     assert len(stations_highest_rel_level(stations, 5)) == 5
     assert stations_highest_rel_level(stations, 5) == [s4,s5,s3,s1,s2]
+
+
+#Task 2E
+
+def test_levels_graphing():
+    
+    task2E_run()
+    num_figures = plt.gcf().number
+    assert num_figures == 1:
+
+
+
+
+#Task 2F
+
+
+def test_poly():
+    test_data = [0, 1, 4, 9, 16, 25]
+    test_xaxis = [0,1,2,3,4,5]
+
+    test_polynomial = polyfit(test_xaxis, test_data, 2)
+    for x in test_xaxis:
+        poly_result = test_polynomial(x)
+    expected_value = x ** 2
+    assert np.isclose(poly_result, expected_value, atol=1e-8)
+
+
+#Task 2G
+
+def test_severity_rating():
+    stations = build_station_list()
+    update_water_levels(stations)
+    
+    num_of_stations = len(stations)        
+    total = 0
+
+    
+    list_severe_towns = []
+    list_high_towns = []
+    list_mod_towns = []
+    list_low_towns = []
+
+    for station in stations:
+        if station.relative_water_level() != None:
+            if station.relative_water_level() > 1.25:
+                list_severe_towns.append(station.town)
+            if 1 <= station.relative_water_level() < 1.25:
+                list_high_towns.append(station.town)
+            if 0.75 < station.relative_water_level() < 1:
+                list_mod_towns.append(station.town)
+            if station.relative_water_level() < 0.75:
+                list_low_towns.append(station.town)
+        
+        if station.relative_water_level() == None:
+            total +=1
+    
+    total += len(list_severe_towns) + len(list_high_towns) + len(list_mod_towns) + len(list_low_towns)
+
+    assert total == num_of_stations
+

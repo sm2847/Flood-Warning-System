@@ -48,7 +48,7 @@ def test_stations_by_river():
     for river, stations_list in test_stations_by_river.items():
         assert isinstance(stations_list, tuple)
 
-# tests that rivers_by_station_number returns a list of tuples containing a string and an integar
+# tests that rivers_by_station_number returns a list of tuples containing a string and an integer
 def test_rivers_by_station_number():
     stations = build_station_list()
     test_rivers_by_station_number = rivers_by_station_number(stations, 10)

@@ -13,7 +13,7 @@ def run():
         if station.relative_water_level() != None:
             if station.relative_water_level() > 1.25:
                 list_severe_towns.append(station.town)
-            if 1 < station.relative_water_level() < 1.25:
+            if 1 <= station.relative_water_level() < 1.25:
                 list_high_towns.append(station.town)
             if 0.75 < station.relative_water_level() < 1:
                 list_mod_towns.append(station.town)
@@ -27,6 +27,8 @@ def run():
     print(f"Towns with moderate flood risk: {list_mod_towns}")
     print("\n")
     print(f"Towns with low flood risk: {list_low_towns}")
+
+    
 
 if __name__ == "__main__":
     run()
