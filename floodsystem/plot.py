@@ -3,6 +3,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from floodsystem.analysis import polyfit
 from floodsystem.stationdata import build_station_list
+from datetime import datetime, timedelta
 
 
 #dates = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
@@ -35,12 +36,6 @@ def plot_water_level_with_fit(station, dates, levels, p):
 #print(plot_water_level_with_fit(station, dates, levels, p))
 
 
-
-
-
-
-import matplotlib.pyplot as plt
-from datetime import datetime, timedelta
 
 def plot_water_levels(station, dates, levels):
     plt.plot(dates,levels)
