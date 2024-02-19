@@ -101,7 +101,7 @@ def test_severity_rating():
                 list_severe_towns.append(station.town)
             if 1 <= station.relative_water_level() < 1.25:
                 list_high_towns.append(station.town)
-            if 0.75 < station.relative_water_level() < 1:
+            if 0.75 <= station.relative_water_level() < 1:
                 list_mod_towns.append(station.town)
             if station.relative_water_level() < 0.75:
                 list_low_towns.append(station.town)
@@ -109,7 +109,7 @@ def test_severity_rating():
         if station.relative_water_level() == None:
             total +=1
     
+
     total += len(list_severe_towns) + len(list_high_towns) + len(list_mod_towns) + len(list_low_towns)
 
     assert total == num_of_stations
-
