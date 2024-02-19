@@ -61,7 +61,7 @@ def test_levels_graphing():
     
     task2E_run()
     num_figures = plt.gcf().number
-    assert num_figures == 1:
+    assert num_figures == 1
 
 
 
