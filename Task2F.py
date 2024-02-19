@@ -27,6 +27,7 @@ def run():
 if __name__ == "__main__":
     print("*** Task 2F: CUED Part IA Flood Warning System ***")
     run()
+<<<<<<< HEAD
 
 #print(stations_highest_rel_level(stations, 0))
 
@@ -45,3 +46,5 @@ if __name__ == "__main__":
 #if __name__ == "__main__":
 #    print("*** Task 2D: CUED Part IA Flood Warning System ***")
 #    run()
+=======
+>>>>>>> 5be1cfe12709dfe2442fb2739009584b6f8aa3d8
