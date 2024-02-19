@@ -15,7 +15,7 @@ def run():
                 list_severe_towns.append(station.town)
             if 1 <= station.relative_water_level() < 1.25:
                 list_high_towns.append(station.town)
-            if 0.75 < station.relative_water_level() < 1:
+            if 0.75 <= station.relative_water_level() < 1:
                 list_mod_towns.append(station.town)
             if station.relative_water_level() < 0.75:
                 list_low_towns.append(station.town)
