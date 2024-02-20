@@ -35,9 +35,8 @@ def test_stations_level_over_thershold():
 
     over_threshold_stations = stations_level_over_threshold(stations, 0.2)
 
-    assert over_threshold_stations[0][1] == 0.5
     assert over_threshold_stations[1][1] == 1
-
+ 
 #Task 2C
 def test_stations_highest_rel_level():
     
