@@ -119,7 +119,3 @@ def test_severity_rating():
 
 
     assert total == num_of_stations-1
-
-
-
-test_severity_rating()
