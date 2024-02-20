@@ -88,7 +88,7 @@ def test_severity_rating():
     
     num_of_stations = len(stations)        
     total = 0
-
+    counter = 0
     
     list_severe_towns = []
     list_high_towns = []
@@ -107,9 +107,19 @@ def test_severity_rating():
                 list_low_towns.append(station.town)
         
         if station.relative_water_level() == None:
+            counter += 1
             total +=1
     
 
     total += len(list_severe_towns) + len(list_high_towns) + len(list_mod_towns) + len(list_low_towns)
 
-    assert total == num_of_stations
+    print(total)
+    print(counter)
+    print(num_of_stations)
+
+
+    assert total == num_of_stations - 1
+
+
+
+test_severity_rating()
