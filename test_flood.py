@@ -110,12 +110,6 @@ def test_severity_rating():
             counter += 1
             total +=1
     
-
     total += len(list_severe_towns) + len(list_high_towns) + len(list_mod_towns) + len(list_low_towns)
-
-    print(total)
-    print(counter)
-    print(num_of_stations)
-
 
     assert total == num_of_stations-1
