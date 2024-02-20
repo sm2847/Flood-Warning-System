@@ -118,7 +118,7 @@ def test_severity_rating():
     print(num_of_stations)
 
 
-    assert total == num_of_stations - 1
+    assert total == num_of_stations-1
 
 
 
