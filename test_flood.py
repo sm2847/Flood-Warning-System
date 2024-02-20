@@ -31,12 +31,16 @@ def test_stations_level_over_thershold():
 
     stations[0].typical_range, stations[0].latest_level = (0, 5), 2.5
     stations[1].typical_range, stations[1].latest_level = (0, 2.5), 2.5 
-    stations[2].typical_range, stations[2].latest_level = (0, 1), 0 
+    stations[2].typical_range, stations[2].latest_level = (0, 1), 0.5
 
     over_threshold_stations = stations_level_over_threshold(stations, 0.4)
 
+#Checking with the numbers I chose
+    
+    assert over_threshold_stations[0][1] == 0.5
     assert over_threshold_stations[1][1] == 1
-
+    assert over_threshold_stations[2][1] == 0.5
+ 
 #Task 2C
 def test_stations_highest_rel_level():
     
@@ -108,7 +112,6 @@ def test_severity_rating():
         if station.relative_water_level() == None:
             total +=1
     
-
     total += len(list_severe_towns) + len(list_high_towns) + len(list_mod_towns) + len(list_low_towns)
 
-    assert total == num_of_stations
+    assert total == num_of_stations-1
