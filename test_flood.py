@@ -88,7 +88,7 @@ def test_severity_rating():
     
     num_of_stations = len(stations)        
     total = 0
-    counter = 0
+
     
     list_severe_towns = []
     list_high_towns = []
