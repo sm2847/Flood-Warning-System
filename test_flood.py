@@ -8,11 +8,7 @@ import numpy as np
 from Task2G import run as task2G_run
 from floodsystem.stationdata import build_station_list, update_water_levels
 
-
-#Generates list of test stations
-
-def generate_test_station():
-
+def test_stations():
     s_id = "test-s-id"
     m_id = "test-m-id"
     label = ["Station 1", "Station 2", "Station 3", "Station 4", "Station 5"]
@@ -26,11 +22,13 @@ def generate_test_station():
     s4 = MonitoringStation(s_id, m_id, label[3], coord[3], trange, river[1], town)
     s5 = MonitoringStation(s_id, m_id, label[4], coord[4], trange, river[2], town)
 
-    return [s1, s2, s3, s4, s5]
+    return [s1,s2,s3,s4,s5]
 
 #Task 2B
 def test_stations_level_over_thershold():
-    stations = generate_test_station()
+
+    stations = test_stations()
+
     stations[0].typical_range, stations[0].latest_level = (0, 5), 2.5
     stations[1].typical_range, stations[1].latest_level = (0, 2.5), 2.5 
     stations[2].typical_range, stations[2].latest_level = (0, 1), 0 
@@ -42,7 +40,9 @@ def test_stations_level_over_thershold():
 
 #Task 2C
 def test_stations_highest_rel_level():
-    stations = generate_test_station()
+    
+    stations = test_stations()
+    
     stations[0].typical_range, stations[0].latest_level = (0.1, 0.5), 0.25
     stations[1].typical_range, stations[1].latest_level = (0.1, 1.5), 0.25
     stations[2].typical_range, stations[2].latest_level = (0.0, 2.5), 3.0
