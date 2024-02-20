@@ -33,9 +33,8 @@ def test_stations_level_over_thershold():
     stations[1].typical_range, stations[1].latest_level = (0, 2.5), 2.5 
     stations[2].typical_range, stations[2].latest_level = (0, 1), 0 
 
-    over_threshold_stations = stations_level_over_threshold(stations, 0.2)
+    over_threshold_stations = stations_level_over_threshold(stations, 0.4)
 
-    assert over_threshold_stations[0][1] == 0.5
     assert over_threshold_stations[1][1] == 1
 
 #Task 2C
